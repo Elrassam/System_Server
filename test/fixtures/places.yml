@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  p_name: MyString
+  building: MyString
+  size: 1
+  admin_id: 1
+
+two:
+  p_name: MyString
+  building: MyString
+  size: 1
+  admin_id: 1

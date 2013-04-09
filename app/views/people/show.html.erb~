@@ -12,7 +12,7 @@
 
 <p>
   <b>Type:</b>
-  <%= @person.person_type %>
+  <%= @person.type %>
 </p>
 
 <p>

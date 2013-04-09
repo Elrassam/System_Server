@@ -20,8 +20,8 @@
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :person_type %><br />
-    <%= f.check_box :person_type %>
+    <%= f.label :type %><br />
+    <%= f.check_box :type %>
   </div>
   <div class="field">
     <%= f.label :email %><br />

@@ -1,0 +1,5 @@
+class PlaceHasCap < ActiveRecord::Base
+  attr_accessible :capability_id, :place_id
+  belongs_to :capabilities , :foreign_key => 'capability_id'
+  belongs_to :places, :foreign_key => 'place_id'
+end

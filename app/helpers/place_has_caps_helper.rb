@@ -1,0 +1,2 @@
+module PlaceHasCapsHelper
+end

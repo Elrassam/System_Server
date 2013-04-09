@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>P name:</b>
+  <%= @place.p_name %>
+</p>
+
+<p>
+  <b>Building:</b>
+  <%= @place.building %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @place.size %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%= @place.person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>

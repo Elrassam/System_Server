@@ -11,13 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408180736) do
+ActiveRecord::Schema.define(:version => 20130408225456) do
+
+  create_table "capabilities", :force => true do |t|
+    t.string   "cap_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "people", :force => true do |t|
     t.string   "username"
     t.string   "password"
-    t.boolean  "type"
+    t.boolean  "person_type"
     t.string   "email"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "people", ["username", "password"], :name => "usrnm_pswrd_index"
+
+  create_table "place_has_caps", :force => true do |t|
+    t.integer  "place_id"
+    t.integer  "capability_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "p_name"
+    t.string   "building"
+    t.integer  "size"
+    t.integer  "person_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "places", ["p_name", "building"], :name => "build_pname_index"
+  add_index "places", ["size"], :name => "size_index"
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "place_id"
+    t.date     "from"
+    t.date     "to"
+    t.integer  "period"
+    t.text     "purpose"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

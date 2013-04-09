@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  place_id: 1
+  from: 2013-04-08
+  to: 2013-04-08
+  period: 1
+  purpose: MyText
+
+two:
+  place_id: 1
+  from: 2013-04-08
+  to: 2013-04-08
+  period: 1
+  purpose: MyText

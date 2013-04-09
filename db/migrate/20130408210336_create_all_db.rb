@@ -1,0 +1,42 @@
+class CreateAllDb < ActiveRecord::Migration
+  def up
+  	create_table :places do |t|
+      t.string :p_name
+      t.string :building
+      t.integer :size
+      t.integer :person_id
+
+      t.timestamps
+    end
+    
+    create_table :capabilities do |t|
+      t.string :cap_name
+
+      t.timestamps
+    end
+    
+    create_table :reservations do |t|
+      t.integer :place_id
+      t.date :from
+      t.date :to
+      t.integer :period
+      t.text :purpose
+
+      t.timestamps
+    end
+    
+    add_index(:places, :size, :name => "size_index")
+    add_index(:places, [:p_name, :building], :name => "build_pname_index")
+    add_index(:people, [:username, :password], :name => "usrnm_pswrd_index")
+  end
+  
+  def down
+  	drop_table :places
+  	drop_table :people
+  	drop_table :capabilities
+  	drop_table :reservations
+  	remove_index(:places, :size)
+    remove_index(:places, [:p_name, :building])
+    remove_index(:people, [:username, :password])
+  end
+end

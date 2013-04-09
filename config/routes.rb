@@ -1,7 +1,13 @@
 SystemServer::Application.routes.draw do
+  resources :place_has_caps
+  resources :reservations
+  resources :capabilities
+  resources :places
   resources :people
   root :to => 'people#index'
-
+  #match 'capabilities' => 'capabilities#index'
+  #match '/places' => 'places#index'
+  #match 'reservations' => 'reservations#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
