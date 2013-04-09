@@ -1,14 +1,12 @@
 SystemServer::Application.routes.draw do
+  get "login/login"
   resources :capabilities_places
-
-
-  resources :place_has_caps
   resources :reservations
   resources :capabilities
   resources :places
   resources :people
-  root :to => 'people#index'
-  #match 'capabilities' => 'capabilities#index'
+  root :to => 'login#login'
+  match '/login_request' => 'login#login_action'
   #match '/places' => 'places#index'
   #match 'reservations' => 'reservations#index'
   # The priority is based upon order of creation:
