@@ -1,13 +1,13 @@
-class BuildDb < ActiveRecord::Migration
-    def up
-  	  create_table :people do |t|
+class BuildDatabase < ActiveRecord::Migration
+   def up
+	  create_table :people do |t|
 		  t.string :username
 		  t.string :password
 		  t.boolean :person_type
 		  t.string :email
 
 		  t.timestamps
-    	end
+	  end
     
   	create_table :places do |t|
       t.string :placename

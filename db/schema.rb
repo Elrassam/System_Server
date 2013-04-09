@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409180008) do
+ActiveRecord::Schema.define(:version => 20130409212437) do
 
   create_table "capabilities", :force => true do |t|
     t.string   "cap_name"
