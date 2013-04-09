@@ -10,7 +10,7 @@ class BuildDb < ActiveRecord::Migration
     end
     
   	create_table :places do |t|
-      t.string :p_name
+      t.string :placename
       t.string :building
       t.integer :size
       t.integer :person_id
@@ -26,8 +26,8 @@ class BuildDb < ActiveRecord::Migration
     
     create_table :reservations do |t|
       t.integer :place_id
-      t.date :from
-      t.date :to
+      t.date :datefrom
+      t.date :dateto
       t.integer :period
       t.text :purpose
 
@@ -42,7 +42,7 @@ class BuildDb < ActiveRecord::Migration
     end
     
     add_index(:places, :size, :name => "size_index")
-    add_index(:places, [:p_name, :building], :name => "build_pname_index")
+    add_index(:places, [:placename, :building], :name => "build_pname_index")
     add_index(:people, [:username, :password], :name => "usrnm_pswrd_index")
   end
   

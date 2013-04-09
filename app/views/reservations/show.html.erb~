@@ -7,12 +7,12 @@
 
 <p>
   <b>From:</b>
-  <%= @reservation.datefrom %>
+  <%= @reservation.from %>
 </p>
 
 <p>
   <b>To:</b>
-  <%= @reservation.dateto %>
+  <%= @reservation.to %>
 </p>
 
 <p>

@@ -1,19 +1,19 @@
 <h1>Check place empty</h1>
 
 <%= form_tag("/check_place_empty_request", :method => "get") do %>
-  <%= label_tag(:place_name, "Place name:") %>
+  <%= label_tag(:place_name, "Place name:") %><br />
   <%= text_field_tag(:place_name, "", :required => true) %><br />
   
-  <%= label_tag(:building_name, "Building name:") %>
+  <%= label_tag(:building_name, "Building name:") %><br />
   <%= text_field_tag(:building_name, "", :required => true) %><br />
   
-  <%= label_tag(:day_date, "Day:") %>
+  <%= label_tag(:day_date, "Day:") %><br />
   <%= date_select(:day_date, "date") %><br />
   
-  <%= label_tag(:period, "Period:") %>
+  <%= label_tag(:period, "Period:") %><br />
   <%= number_field_tag :period, "", :required => true %><br />
   
-  <%= submit_tag("Search") %>
+  <%= submit_tag("Search") %><br />
 <% end %>
 
 <% if @place_mssg != nil%>

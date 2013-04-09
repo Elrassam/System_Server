@@ -1,18 +1,24 @@
 <h1>Search about specific place</h1>
 
 <%= form_tag("/search_specific_place_request", :method => "get") do %>
-  <%= label_tag(:size, "Min acceptable capacity:") %>
+  <%= label_tag(:size, "Min acceptable capacity:") %><br />
   <%= number_field_tag :size, "", :required => true %><br />
   
-  <%= label_tag(:capabilities, "Capabilities:") %>
-  <%= text_area_tag :capabilities, "Enter capabilities separated by comma" %><br />
+  <%= label_tag(:capabilities, "Capabilities: separated by comma (not required)") %><br />
+  <%= text_area_tag :capabilities, "" %><br />
   
-  <%= submit_tag("Search") %>
+  <%= label_tag(:empty_day_date, "Check empty day:") %><br />
+  <%= date_select :empty_day_date, "date" %><br />
+  
+  <%= label_tag(:empty_period, "Check empty period:") %><br />
+  <%= number_field_tag :empty_period , "", :required => true%><br />
+  
+  <%= submit_tag("Search") %><br />
 <% end %>
 
-<% if @status_mssg != nil%>
+<% if @empty_places_mssg != nil%>
       <ul>
-		  <% @status_mssg.each do |msg| %>
+		  <% @empty_places_mssg.each do |msg| %>
 		    <li><%= msg %></li>
 		  <% end %>
       </ul>

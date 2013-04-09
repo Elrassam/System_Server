@@ -1,13 +1,13 @@
 <h1>Check place status</h1>
 
 <%= form_tag("/check_place_status_request", :method => "get") do %>
-  <%= label_tag(:place_name_status, "Place name:") %>
-  <%= text_field_tag :place_name_status, "", :required => true %>
+  <%= label_tag(:place_name_status, "Place name:") %><br />
+  <%= text_field_tag :place_name_status, "", :required => true %><br />
   
-  <%= label_tag(:building_name_status, "Building name:") %>
-  <%= text_field_tag :building_name_status, "", :required => true %>
+  <%= label_tag(:building_name_status, "Building name:") %><br />
+  <%= text_field_tag :building_name_status, "", :required => true %><br />
   
-  <%= submit_tag("Get Status") %>
+  <%= submit_tag("Get Status") %><br />
 <% end %>
 
 <% if @status_mssg != nil%>

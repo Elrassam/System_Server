@@ -16,12 +16,12 @@
     <%= f.number_field :place_id %>
   </div>
   <div class="field">
-    <%= f.label :datefrom %><br />
-    <%= f.date_select :datefrom %>
+    <%= f.label :from %><br />
+    <%= f.date_select :from %>
   </div>
   <div class="field">
-    <%= f.label :dateto %><br />
-    <%= f.date_select :dateto %>
+    <%= f.label :to %><br />
+    <%= f.date_select :to %>
   </div>
   <div class="field">
     <%= f.label :period %><br />

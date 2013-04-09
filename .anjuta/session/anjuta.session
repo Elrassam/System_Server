@@ -4,7 +4,7 @@ Maximized=1
 Geometry=1024x744+0+24
 
 [File Loader]
-Files=file:///host/Work%20space/Rails%20Projects/System_Server/app/models/place.rb#17%%%file:///host/Work%20space/Rails%20Projects/System_Server/app/models/person.rb#5%%%file:///host/Work%20space/Rails%20Projects/System_Server/app/models/capability.rb#1%%%file:///host/Work%20space/Rails%20Projects/System_Server/app/models/reservation.rb#6%%%file:///host/Work%20space/Rails%20Projects/System_Server/app/views/layouts/application.html.erb#1%%%file:///host/Work%20space/Rails%20Projects/System_Server/app/views/places/_form.html.erb#2%%%file:///host/Work%20space/Rails%20Projects/System_Server/app/controllers/places_controller.rb#41
+Files=file:///host/Work%20space/Rails%20Projects/System_Server/app/models/reservation.rb#21
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n

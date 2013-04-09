@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409122053) do
+ActiveRecord::Schema.define(:version => 20130409180008) do
 
   create_table "capabilities", :force => true do |t|
     t.string   "cap_name"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20130409122053) do
 
   create_table "reservations", :force => true do |t|
     t.integer  "place_id"
-    t.date     "from"
-    t.date     "to"
+    t.date     "datefrom"
+    t.date     "dateto"
     t.integer  "period"
     t.text     "purpose"
     t.datetime "created_at", :null => false
