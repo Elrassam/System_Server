@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :p_name %><br />
+    <%= f.label :placename %><br />
     <%= f.text_field :p_name %>
   </div>
   <div class="field">
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :person_id %><br />
-    <%= f.number_field :admin_id %>
+    <%= f.number_field :person_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

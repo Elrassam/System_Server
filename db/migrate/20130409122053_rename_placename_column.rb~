@@ -1,0 +1,5 @@
+class RenamePlacenameColumn < ActiveRecord::Migration
+  def change
+  	
+  end
+end

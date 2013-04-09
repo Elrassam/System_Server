@@ -1,18 +1,16 @@
 <h1>Login</h1>
 <% if @login_mssg != nil%>
-	<%if @login_mssg.count > 0%>
       <ul>
 		  <% @login_mssg.each do |msg| %>
 		    <li><%= msg %></li>
 		  <% end %>
       </ul>
-    <%end%>  
 <%end%>
 
 <%= form_tag("/login_request", :method => "get") do %>
   <%= label_tag(:username, "Username:") %>
-  <%= text_field_tag(:username) %>
+  <%= text_field_tag :username, "", :required => true %><br />
   <%= label_tag(:password, "Password:") %>
-  <%= text_field_tag(:password) %>
+  <%= password_field_tag :password, "", :required => true %><br />
   <%= submit_tag("Login") %>
 <% end %>

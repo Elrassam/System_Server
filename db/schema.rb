@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409085817) do
+ActiveRecord::Schema.define(:version => 20130409122053) do
 
   create_table "capabilities", :force => true do |t|
     t.string   "cap_name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130409085817) do
   add_index "people", ["username", "password"], :name => "usrnm_pswrd_index"
 
   create_table "places", :force => true do |t|
-    t.string   "p_name"
+    t.string   "placename"
     t.string   "building"
     t.integer  "size"
     t.integer  "person_id"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20130409085817) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "places", ["p_name", "building"], :name => "build_pname_index"
+  add_index "places", ["placename", "building"], :name => "build_pname_index"
   add_index "places", ["size"], :name => "size_index"
 
   create_table "reservations", :force => true do |t|

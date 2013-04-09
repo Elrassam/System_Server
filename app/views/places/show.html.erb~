@@ -17,7 +17,7 @@
 
 <p>
   <b>Admin:</b>
-  <%= @place.admin_id %>
+  <%= @place.person_id %>
 </p>
 
 

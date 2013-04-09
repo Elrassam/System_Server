@@ -12,9 +12,9 @@ class LoginController < ApplicationController
   	else	
   	  @login_mssg << "Invalid username or password"
   	end
-  	      respond_to do |format|
-      	format.html { render "login"}
-      	format.json { render json: @person_login }
-      end
+    respond_to do |format|
+      format.html { render "login"}
+      format.json { render json: @person_login }
+    end	
   end
 end

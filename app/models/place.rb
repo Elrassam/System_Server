@@ -1,10 +1,10 @@
 class Place < ActiveRecord::Base
-  attr_accessible :person_id, :building, :p_name, :size
+  attr_accessible :person_id, :building, :placename, :size
   belongs_to :person, :foreign_key => 'person_id'
-  validates_uniqueness_of :p_name, :scope => :building
+  validates_uniqueness_of :placename, :scope => :building
   validates :size, :presence => true
   validates :building, :presence => true
-  validates :p_name, :presence => true
+  validates :placename, :presence => true
   validates :person_id, :presence => true
   has_and_belongs_to_many :capabilities
   has_many :reservations, :foreign_key => :place_id

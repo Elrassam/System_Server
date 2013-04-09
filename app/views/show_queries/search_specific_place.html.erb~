@@ -1,0 +1,19 @@
+<h1>Search about specific place</h1>
+
+<%= form_tag("/search_specific_place_request", :method => "get") do %>
+  <%= label_tag(:size, "Min acceptable capacity:") %>
+  <%= number_field_tag :size, "", :required => true %>
+  
+  <%= label_tag(:capabilities, "Capabilities:") %>
+  <%= text_area_tag :capabilities, "Enter capabilities separated by comma" %>
+  
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @status_mssg != nil%>
+      <ul>
+		  <% @status_mssg.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+      </ul>
+<%end%>
