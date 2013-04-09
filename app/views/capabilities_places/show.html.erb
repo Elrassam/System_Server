@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Capability:</b>
+  <%= @capabilities_place.capability_id %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= @capabilities_place.place_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_capabilities_place_path(@capabilities_place) %> |
+<%= link_to 'Back', capabilities_places_path %>

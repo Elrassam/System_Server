@@ -1,13 +1,21 @@
 class Reservation < ActiveRecord::Base
   attr_accessible :from, :period, :place_id, :purpose, :to
-  belongs_to :place, :dependent => :delete
+  belongs_to :place, :dependent => :delete, :foreign_key => :place_id
   validates_uniqueness_of :place_id, :scope => [:from, :to, :period]
   validates :period, :inclusion => { :in => 1..8 }
   validate :check_from_to
-  
+  validates :from, :presence => true
+  validates :to, :presence => true
+  validates :period, :presence => true
+  validates :place_id, :presence => true
+  validates :purpose, :presence => true
   
   def check_from_to
-  	errors.add("From date must be before To date") unless self.from <= self.to
-    (self.from <= self.to)?
+    result = true
+  	if self.from > self.to
+  	  errors.add("From date must be before To date")
+  	  result = false
+  	end
+    result
   end
 end

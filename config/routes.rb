@@ -1,4 +1,7 @@
 SystemServer::Application.routes.draw do
+  resources :capabilities_places
+
+
   resources :place_has_caps
   resources :reservations
   resources :capabilities

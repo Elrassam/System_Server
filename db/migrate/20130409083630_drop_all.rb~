@@ -1,0 +1,11 @@
+class DropAll < ActiveRecord::Migration
+  def change
+    remove_index(:places, [:p_name, :building])
+    remove_index(:people, [:username, :password])
+    drop_table :places
+  	drop_table :people
+  	drop_table :capabilities
+  	drop_table :reservations
+  	drop_table :place_has_caps
+  end
+end

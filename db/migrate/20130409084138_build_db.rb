@@ -1,7 +1,6 @@
-class CreateAllDb < ActiveRecord::Migration
-  def up
-  
-  	create_table :people do |t|
+class BuildDb < ActiveRecord::Migration
+    def up
+  	  create_table :people do |t|
       t.string :username
       t.string :password
       t.boolean :person_type
@@ -35,9 +34,9 @@ class CreateAllDb < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :place_has_caps do |t|
-      t.integer :place_id
+    create_table :capabilities_places do |t|
       t.integer :capability_id
+      t.integer :place_id
 
       t.timestamps
     end
@@ -52,9 +51,6 @@ class CreateAllDb < ActiveRecord::Migration
   	drop_table :people
   	drop_table :capabilities
   	drop_table :reservations
-  	drop_table :place_has_caps
-  	remove_index(:places, :size)
-    remove_index(:places, [:p_name, :building])
-    remove_index(:people, [:username, :password])
+  	drop_table :capabilities_places
   end
 end

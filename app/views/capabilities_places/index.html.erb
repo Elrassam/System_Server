@@ -1,0 +1,25 @@
+<h1>Listing capabilities_places</h1>
+
+<table>
+  <tr>
+    <th>Capability</th>
+    <th>Place</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @capabilities_places.each do |capabilities_place| %>
+  <tr>
+    <td><%= capabilities_place.capability_id %></td>
+    <td><%= capabilities_place.place_id %></td>
+    <td><%= link_to 'Show', capabilities_place %></td>
+    <td><%= link_to 'Edit', edit_capabilities_place_path(capabilities_place) %></td>
+    <td><%= link_to 'Destroy', capabilities_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Capabilities place', new_capabilities_place_path %>
