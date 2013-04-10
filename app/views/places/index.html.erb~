@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>P name</th>
+    <th>Place name</th>
     <th>Building</th>
     <th>Size</th>
     <th>Admin</th>
@@ -13,7 +13,7 @@
 
 <% @places.each do |place| %>
   <tr>
-    <td><%= place.p_name %></td>
+    <td><%= place.placename %></td>
     <td><%= place.building %></td>
     <td><%= place.size %></td>
     <td><%= place.person_id %></td>

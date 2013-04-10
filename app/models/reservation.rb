@@ -16,14 +16,16 @@ class Reservation < ActiveRecord::Base
     result = false
     
     if self.datefrom <= self.dateto
-    	if (self.dayname == "Saturday" && (self.dayfrom..self.dayto).any?(&:saturday?)) ||
-    		(self.dayname == "Sunday" && (self.dayfrom..self.dayto).any?(&:sunday?)) ||
-    		(self.dayname == "Monday" && (self.dayfrom..self.dayto).any?(&:monday?)) ||
-			(self.dayname == "Tuesday" && (self.dayfrom..self.dayto).any?(&:tuesday?)) ||
-			(self.dayname == "Wednesday" && (self.dayfrom..self.dayto).any?(&:wednesday?))||
-			(self.dayname == "Thursday" && (self.dayfrom..self.dayto).any?(&:thursday?)) ||
-			(self.dayname == "Friday" && (self.dayfrom..self.dayto).any?(&:friday?))
+    	if (self.dayname == "Saturday" && (self.datefrom..self.dateto).any?(&:saturday?)) ||
+    		(self.dayname == "Sunday" && (self.datefrom..self.dateto).any?(&:sunday?)) ||
+    		(self.dayname == "Monday" && (self.datefrom..self.dateto).any?(&:monday?)) ||
+			(self.dayname == "Tuesday" && (self.datefrom..self.dateto).any?(&:tuesday?)) ||
+			(self.dayname == "Wednesday" && (self.datefrom..self.dateto).any?(&:wednesday?))||
+			(self.dayname == "Thursday" && (self.datefrom..self.dateto).any?(&:thursday?)) ||
+			(self.dayname == "Friday" && (self.datefrom..self.dateto).any?(&:friday?))
     		result = true
+    	else
+    		errors.add(:dayname, "These interval isn't include this day.")
     	end
     end
   	if result
