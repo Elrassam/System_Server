@@ -1,5 +1,5 @@
-class BuildDatabase < ActiveRecord::Migration
-   def up
+class CreateDatabase < ActiveRecord::Migration
+def up
 	  create_table :people do |t|
 		  t.string :username
 		  t.string :password
@@ -28,7 +28,7 @@ class BuildDatabase < ActiveRecord::Migration
       t.integer :place_id
       t.date :datefrom
       t.date :dateto
-      t.string :daybame
+      t.string :dayname
       t.integer :period
       t.text :purpose
 

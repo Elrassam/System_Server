@@ -4,12 +4,7 @@ class ReservationsController < ApplicationController
   def index
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
 	  if session[:usertype_cookie_system] == "false"
-		@reservations = Reservation.all
-
-		respond_to do |format|
-		  format.html # index.html.erb
-		  format.json { render json: @reservations }
-		end
+	  	
 	  else
 	  	render "public/500.html"  
 	  end

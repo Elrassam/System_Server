@@ -14,3 +14,9 @@
   <%= password_field_tag :password, "", :required => true %><br />
   <%= submit_tag("Login") %><br />
 <% end %>
+
+<hr/>
+
+<%= form_tag("/signup_request", :method => "get") do %>
+  <%= submit_tag("Signup") %><br />
+<% end %>

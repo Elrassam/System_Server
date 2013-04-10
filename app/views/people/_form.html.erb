@@ -17,10 +17,10 @@
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :person_type %><br />
+    <%= f.label :person_type, "Are you student?" %><br />
     <%= f.check_box :person_type %>
   </div>
   <div class="field">
@@ -28,6 +28,6 @@
     <%= f.text_field :email %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit%>
   </div>
 <% end %>

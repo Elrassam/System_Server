@@ -24,6 +24,11 @@
     <%= f.date_select :dateto %>
   </div>
   <div class="field">
+    <%= f.label :dayname %><br />
+    <%= f.select :dayname, ['Saturday', 'Sunday', 'Monday','Tuesday', 
+    		'Wednesday', 'Thursday','Friday'] %> 
+  </div>
+  <div class="field">
     <%= f.label :period %><br />
     <%= f.number_field :period %>
   </div>

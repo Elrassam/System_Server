@@ -16,7 +16,7 @@ class PlacesController < ApplicationController
 		  	render "public/500.html"  
 		  end
 		else
-			render "app/views/login/login.html.erb"
+
 		end
 	else
 	  render "app/views/login/login.html.erb"

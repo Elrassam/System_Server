@@ -1,16 +1,10 @@
 SystemServer::Application.routes.draw do
-  get "show_queries/check_place_status"
 
-  get "show_queries/search_specific_place"
-
-  get "show_queries/check_place_empty"
-
-  get "login/login"
-  resources :capabilities_places
-  resources :reservations
-  resources :capabilities
-  resources :places
   resources :people
+  resources :places
+  resources :capabilities
+  resources :reservations
+  resources :capabilities_places
   root :to => 'login#login'
   match '/login_request' => 'login#login_action'
   match '/check_place_empty' => 'show_queries#check_place_empty'
@@ -19,9 +13,13 @@ SystemServer::Application.routes.draw do
   match '/check_place_status_request' => 'show_queries#check_place_status_action'
   match '/search_specific_place' => 'show_queries#search_specific_place'  
   match '/search_specific_place_request' => 'show_queries#search_specific_place_action'
+  match '/reservations_page' => 'reservations#index'
+  match '/capabilities_page' => 'capabilities#index'
+  match '/places_page' => 'places#index'
+  match '/capabilities_places_page' => 'capabilities_places#index'
+  match '/signup_request' => 'people#new'
   
-  #match '/places' => 'places#index'
-  #match 'reservations' => 'reservations#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

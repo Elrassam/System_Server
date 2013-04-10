@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409212437) do
+ActiveRecord::Schema.define(:version => 20130410203219) do
 
   create_table "capabilities", :force => true do |t|
     t.string   "cap_name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20130409212437) do
     t.integer  "place_id"
     t.date     "datefrom"
     t.date     "dateto"
+    t.string   "dayname"
     t.integer  "period"
     t.text     "purpose"
     t.datetime "created_at", :null => false

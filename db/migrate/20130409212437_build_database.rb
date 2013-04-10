@@ -28,6 +28,7 @@ class BuildDatabase < ActiveRecord::Migration
       t.integer :place_id
       t.date :datefrom
       t.date :dateto
+      t.string :dayname
       t.integer :period
       t.text :purpose
 
