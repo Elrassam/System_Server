@@ -18,7 +18,8 @@ SystemServer::Application.routes.draw do
   match '/places_page' => 'places#index'
   match '/capabilities_places_page' => 'capabilities_places#index'
   match '/signup_request' => 'people#new'
-  
+  match '/bulk_insert' => 'bulk_insert#bulk_insert'
+  match '/bulk_insert_request' => 'bulk_insert#bulk_insert_action'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
