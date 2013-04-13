@@ -1,12 +1,15 @@
 <h1>Login</h1>
+
 <% if @login_mssg != nil%>
+	<div class="errors_box">
       <ul>
 		  <% @login_mssg.each do |msg| %>
 		    <li><%= msg %></li>
 		  <% end %>
       </ul>
+    </div>    
 <%end%>
-
+<div class = "main_container">
 <%= form_tag("/login_request", :method => "get") do %>
   <%= label_tag(:username, "Username:") %><br />
   <%= text_field_tag :username, "", :required => true %><br />
@@ -17,3 +20,7 @@
 
 <hr/>
 
+<%= form_tag("/signup_request", :method => "get") do %>
+  <%= submit_tag("Signup") %><br />
+<% end %>
+</div>

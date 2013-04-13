@@ -1,3 +1,4 @@
+<div class = "main_container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,7 +20,7 @@
   <b>Admin:</b>
   <%= @place.person_id %>
 </p>
+</div>
 
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<h4 align = "center"><%= link_to 'Edit', edit_place_path(@place) %> </h4>
+<h4 align = "center"><%= link_to 'Back', places_path %></h4>

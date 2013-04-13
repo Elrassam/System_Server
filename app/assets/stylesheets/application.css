@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+.main_container{
+border:2px solid #686868;
+padding:20px; 
+background:#E8E8E8;
+border-radius:10px;
+margin:auto;
+width:50%;
+}
+.errors_box
+{
+border:2px solid #FF0000;
+padding:20px; 
+background:#EFCBCB;
+border-radius:10px;
+margin:auto;
+width:50%;
+}
+.centering{
+margin:auto;
+}

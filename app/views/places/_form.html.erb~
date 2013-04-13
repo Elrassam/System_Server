@@ -1,6 +1,6 @@
 <%= form_for(@place) do |f| %>
   <% if @place.errors.any? %>
-    <div id="error_explanation">
+    <div class="errors_box">
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
 
       <ul>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :placename %><br />
-    <%= f.text_field :p_name %>
+    <%= f.text_field :placename %>
   </div>
   <div class="field">
     <%= f.label :building %><br />

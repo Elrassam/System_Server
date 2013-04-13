@@ -29,7 +29,7 @@ class LoginController < ApplicationController
   def login_action
   	prsn = Person.find_by_username_and_password(params[:username], params[:password])
     @person_login = nil
-  	@login_mssg = []
+  	@login_mssg = nil
   	if prsn != nil
   	  @person_login = prsn
   	  user_flag = prsn.person_type
@@ -47,7 +47,8 @@ class LoginController < ApplicationController
 		  end	
   	  end
   	  
-  	else	
+  	else
+  	  @login_mssg = []		
   	  @login_mssg << "Invalid username or password"
   	  respond_to do |format|
 		  format.html { render "login"}

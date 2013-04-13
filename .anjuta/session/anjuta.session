@@ -3,9 +3,6 @@
 Maximized=1
 Geometry=1024x744+0+24
 
-[File Loader]
-Files=file:///host/Work%20space/Rails%20Projects/System_Server/app/controllers/show_queries_controller.rb#16%%%file:///host/Work%20space/Rails%20Projects/System_Server/config/routes.rb#1%%%file:///host/Work%20space/Rails%20Projects/System_Server/db/migrate/20130410235331_create_all_db.rb#2%%%file:///host/Work%20space/Rails%20Projects/System_Server/Gemfile#8
-
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 

@@ -1,6 +1,6 @@
 <%= form_for(@capabilities_place) do |f| %>
   <% if @capabilities_place.errors.any? %>
-    <div id="error_explanation">
+    <div class="errors_box">
       <h2><%= pluralize(@capabilities_place.errors.count, "error") %> prohibited this capabilities_place from being saved:</h2>
 
       <ul>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class = "main_container">
   <div class="field">
     <%= f.label :capability_id %><br />
     <%= f.number_field :capability_id %>
@@ -22,4 +22,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>  
 <% end %>

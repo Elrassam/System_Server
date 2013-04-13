@@ -1,8 +1,8 @@
-<h1>Listing places</h1>
+<h1 align = "center">Listing places</h1>
 
-<table>
+<table class="centering">
   <tr>
-    <th>Place name</th>
+    <th>Place</th>
     <th>Building</th>
     <th>Size</th>
     <th>Admin</th>
