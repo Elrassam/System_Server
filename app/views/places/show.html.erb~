@@ -17,10 +17,11 @@
 </p>
 
 <p>
-  <b>Admin:</b>
-  <%= @place.person_id %>
+  <b>Admin username:</b>
+  <%= (Person.find_by_id(@place.person_id)).username %>
 </p>
+</div>
 
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<h4 align = "center"><%= link_to 'Edit', edit_place_path(@place) %> </h4>
+<h4 align = "center"><%= link_to 'Back', places_path %></h4>
+</br><h4 align="center"><a href="/edit_queries">Home page</a></h4>

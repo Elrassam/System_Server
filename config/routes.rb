@@ -20,6 +20,7 @@ SystemServer::Application.routes.draw do
   match '/signup_request' => 'people#new'
   match '/bulk_insert' => 'bulk_insert#bulk_insert_form'
   match '/bulk_insert_request' => 'bulk_insert#bulk_insert_action'
+  match '/edit_queries' => 'queries#edit_q'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

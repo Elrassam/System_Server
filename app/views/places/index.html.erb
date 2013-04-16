@@ -5,7 +5,7 @@
     <th>Place</th>
     <th>Building</th>
     <th>Size</th>
-    <th>Admin</th>
+    <th>Admin username</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,7 +16,7 @@
     <td><%= place.placename %></td>
     <td><%= place.building %></td>
     <td><%= place.size %></td>
-    <td><%= place.person_id %></td>
+    <td><%= (Person.find_by_id(place.person_id)).username %></td>
     <td><%= link_to 'Show', place %></td>
     <td><%= link_to 'Edit', edit_place_path(place) %></td>
     <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +27,4 @@
 <br />
 
 <h4 align = "center"><%= link_to 'New Place', new_place_path %></h4>
+</br><h4 align="center"><a href="/edit_queries">Home page</a></h4>

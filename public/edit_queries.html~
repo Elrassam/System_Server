@@ -2,6 +2,19 @@
 <html>
 <head>
   <title>Choose what you want</title>
+  <style>
+.main_container{
+border:2px solid #686868;
+padding:20px; 
+background:#E8E8E8;
+border-radius:10px;
+margin:auto;
+width:50%;
+}
+a{
+font-size:15px
+}
+</style>
 </head>
 
 <body>
@@ -14,7 +27,7 @@
 	<li> <a href = "/reservations_page"> Explore reservations page</a></li>
 	<li> <a href = "/capabilities_places_page"> 
 			Explore capabilities and places relationship page</a></li>	
-	<li> <a href = "/places_page"> Timetable bulk insert</a></li>		
+	<li> <a href = "/bulk_insert"> Timetable bulk insert</a></li>		
 			
 	<hr/>		
 	<li> <a href = "/check_place_status"> Check place status</a></li>

@@ -10,7 +10,19 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <%if @places_error_mssg != nil%>
+  	<div class="errors_box">
+      <ul>
+      <% @places_error_mssg.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <%end%>  
+  
+  
+<div class = "main_container">
   <div class="field">
     <%= f.label :placename %><br />
     <%= f.text_field :placename %>
@@ -25,9 +37,10 @@
   </div>
   <div class="field">
     <%= f.label :person_id %><br />
-    <%= f.number_field :person_id %>
+    <%= f.text_field :person_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>  
 <% end %>

@@ -95,24 +95,35 @@ class PlacesController < ApplicationController
   	if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
 		#prsn = Person.find_by_username(session[:username_cookie_system])
 		#if prsn != nil
+		  @places_error_mssg = nil
+		  
 		  if session[:usertype_cookie_system] == "false"
-			@place = Place.new(params[:place])
+		    @place = Place.new
+		    prsn = Person.find_by_username(params[:place][:person_id])
+		    if prsn != nil
+		    	@place = Place.new(:placename=>params[:place][:placename],:building=>params[:place][:building],
+		    									:size=>params[:place][:size],:person_id=>prsn.id)
 
-			respond_to do |format|
-			  if @place.save
-				format.html { redirect_to @place, notice: 'Place was successfully created.' }
-				format.json { render json: @place, status: :created, location: @place }
-			  else
-				format.html { render action: "new" }
-				format.json { render json: @place.errors, status: :unprocessable_entity }
-			  end
-			end
+				respond_to do |format|
+				  if @place.save
+					format.html { redirect_to @place, notice: 'Place was successfully created.' }
+					format.json { render json: @place, status: :created, location: @place }
+				  else
+					format.html { render action: "new" }
+					format.json { render json: @place.errors, status: :unprocessable_entity }
+				  end
+				end
+		    else
+		    	@places_error_mssg = []
+		  		@places_error_mssg << "Can't find this person."
+		  		render action: "new"
+		    end
 		  else
 		  	render "public/500.html"  
 		  end
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -122,26 +133,36 @@ class PlacesController < ApplicationController
   # PUT /places/1.json
   def update
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-    	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+    	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
+		  @places_error_mssg = nil
 		  if session[:usertype_cookie_system] == "false"
 			@place = Place.find(params[:id])
-
-			respond_to do |format|
-			  if @place.update_attributes(params[:place])
-				format.html { redirect_to @place, notice: 'Place was successfully updated.' }
-				format.json { head :no_content }
-			  else
-				format.html { render action: "edit" }
-				format.json { render json: @place.errors, status: :unprocessable_entity }
-			  end
-			end  	
+			prsn = People.find_by_username(params[:place][:person_id])
+		    if prsn != nil
+		    	bool = @place.update_attributes(:placename=>params[:place][:placename],
+		    									:building=>params[:place][:building],
+		    									:size=>params[:place][:size],:person_id=>prsn.id)
+		    	respond_to do |format|
+				  if bool
+					format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+					format.json { head :no_content }
+				  else
+					format.html { render action: "edit" }
+					format.json { render json: @place.errors, status: :unprocessable_entity }
+				  end
+				end 								
+		    else
+		    	@places_error_mssg = []
+		  		@places_error_mssg << "Can't find this person."
+		  		render action: "edit"
+		    end 	
 		  else
 		  	render "public/500.html"  
 		  end
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -151,8 +172,8 @@ class PlacesController < ApplicationController
   # DELETE /places/1.json
   def destroy
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-    	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+    	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 			@place = Place.find(params[:id])
 			@place.destroy
@@ -164,9 +185,9 @@ class PlacesController < ApplicationController
 		  else
 		  	render "public/500.html"  
 		  end
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end

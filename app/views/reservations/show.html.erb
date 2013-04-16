@@ -2,8 +2,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Place:</b>
-  <%= @reservation.place_id %>
+  <b>Place name:</b>
+  <%= (Place.find_by_id(@reservation.place_id)).placename  %>
 </p>
 
 <p>
@@ -34,3 +34,4 @@
 
 <h4 align = "center"><%= link_to 'Edit', edit_reservation_path(@reservation) %></div>
 <h4 align = "center"><%= link_to 'Back', reservations_path %></div>
+</br><h4 align="center"><a href="/edit_queries">Home page</a></h4>

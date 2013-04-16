@@ -96,18 +96,26 @@ class CapabilitiesPlacesController < ApplicationController
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
       #prsn = Person.find_by_username(session[:username_cookie_system])
 	  #if prsn != nil
+	  	  @cap_place_error_mssg = nil
 		  if session[:usertype_cookie_system] == "false"
-			@capabilities_place = CapabilitiesPlace.new(params[:capabilities_place])
-
-			respond_to do |format|
-			  if @capabilities_place.save
-				format.html { redirect_to @capabilities_place, notice: 'Capabilities place was successfully created.' }
-				format.json { render json: @capabilities_place, status: :created, location: @capabilities_place }
-			  else
-				format.html { render action: "new" }
-				format.json { render json: @capabilities_place.errors, status: :unprocessable_entity }
-			  end
-			end
+		  	capability = Capability.find_by_cap_name(params[:capabilities_place][:capability_id])
+		  	place = Place.find_by_placename(params[:capabilities_place][:place_id])
+		  	if capability != nil and place !=nil
+		  		@capabilities_place = CapabilitiesPlace.new(:place_id =>place.id, :capability_id => capability.id)
+				respond_to do |format|
+				  if @capabilities_place.save
+					format.html { redirect_to @capabilities_place, notice: 'Capabilities place was successfully created.' }
+					format.json { render json: @capabilities_place, status: :created, location: @capabilities_place }
+				  else
+					format.html { render action: "new" }
+					format.json { render json: @capabilities_place.errors, status: :unprocessable_entity }
+				  end
+				end
+			else
+				@cap_place_error_mssg = []
+		  		@cap_place_error_mssg << "Can't find this capability or this place."
+		  		render action: "new"
+		  	end
 		  else
 		  	render "public/500.html"  
 		  end
@@ -125,18 +133,28 @@ class CapabilitiesPlacesController < ApplicationController
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
       #prsn = Person.find_by_username(session[:username_cookie_system])
 	  #if prsn != nil
+	      @cap_place_error_mssg = nil
 		  if session[:usertype_cookie_system] == "false"
 			@capabilities_place = CapabilitiesPlace.find(params[:id])
-
-			respond_to do |format|
-			  if @capabilities_place.update_attributes(params[:capabilities_place])
-				format.html { redirect_to @capabilities_place, notice: 'Capabilities place was successfully updated.' }
-				format.json { head :no_content }
-			  else
-				format.html { render action: "edit" }
-				format.json { render json: @capabilities_place.errors, status: :unprocessable_entity }
-			  end
-			end
+			capability = Capability.find_by_cap_name(params[:capabilities_place][:capability_id])
+		  	place = Place.find_by_placename(params[:capabilities_place][:place_id])
+		  	if capability != nil and place !=nil
+		  		bool = @capabilities_place.update_attributes(:place_id =>place.id, :capability_id => capability.id)
+		  		respond_to do |format|
+			  	
+				  if bool
+					format.html { redirect_to @capabilities_place, notice: 'Capabilities place was successfully updated.' }
+					format.json { head :no_content }
+				  else
+					format.html { render action: "edit" }
+					format.json { render json: @capabilities_place.errors, status: :unprocessable_entity }
+				  end
+				end
+		  	else
+		  		@cap_place_error_mssg = []
+		  		@cap_place_error_mssg << "Can't find this capability or this place."
+		  		render action: "edit"
+		  	end
 		  else
 		  	render "public/500.html"  
 		  end

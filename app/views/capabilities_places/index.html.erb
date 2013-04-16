@@ -11,8 +11,8 @@
 
 <% @capabilities_places.each do |capabilities_place| %>
   <tr>
-    <td><%= capabilities_place.capability_id %></td>
-    <td><%= capabilities_place.place_id %></td>
+    <td><%= (Capability.find_by_id(capabilities_place.capability_id)).cap_name%></td>
+    <td><%= (Place.find_by_id(capabilities_place.place_id)).placename %></td>
     <td><%= link_to 'Show', capabilities_place %></td>
     <td><%= link_to 'Edit', edit_capabilities_place_path(capabilities_place) %></td>
     <td><%= link_to 'Destroy', capabilities_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -23,3 +23,4 @@
 <br />
 
 <h4 align = "center"><%= link_to 'New Capabilities place', new_capabilities_place_path %></h4>
+</br><h4 align="center"><a href="/edit_queries">Home page</a></h4>

@@ -10,18 +10,30 @@
       </ul>
     </div>
   <% end %>
+  
+  <%if @reservation_error_mssg != nil%>
+  	<div class="errors_box">
+      <ul>
+      <% @reservation_error_mssg.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <%end%>
+  
+  
 <div class = "main_container">
   <div class="field">
     <%= f.label :place_id %><br />
-    <%= f.number_field :place_id %>
+    <%= f.text_field :place_id, :value => "" %>
   </div>
   <div class="field">
     <%= f.label :datefrom %><br />
-    <%= f.date_select :datefrom %>
+    <%= f.date_select :datefrom%>
   </div>
   <div class="field">
     <%= f.label :dateto %><br />
-    <%= f.date_select :dateto %>
+    <%= f.date_select :dateto%>
   </div>
   <div class="field">
     <%= f.label :dayname %><br />
@@ -30,11 +42,11 @@
   </div>
   <div class="field">
     <%= f.label :period %><br />
-    <%= f.number_field :period %>
+    <%= f.number_field :period%>
   </div>
   <div class="field">
     <%= f.label :purpose %><br />
-    <%= f.text_area :purpose %>
+    <%= f.text_area :purpose%>
   </div>
   <div class="actions">
     <%= f.submit %>

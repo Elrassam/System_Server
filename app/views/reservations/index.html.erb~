@@ -15,7 +15,7 @@
 
 <% @reservations.each do |reservation| %>
   <tr>
-    <td><%= reservation.place_id %></td>
+    <td><%= (Place.find_by_id(reservation.place_id)).placename %></td>
     <td><%= reservation.datefrom %></td>
     <td><%= reservation.dateto %></td>
     <td><%= reservation.dayname %></td>
@@ -30,4 +30,4 @@
 
 <br />
 
-<%= link_to 'New Reservation', new_reservation_path %>
+<h4 align = "center"><%= link_to 'New Reservation', new_reservation_path %></h4>

@@ -1,5 +1,8 @@
-<h1>Check place empty</h1>
+<h1 align="center">Check place empty</h1>
 
+
+
+<div class = "main_container">
 <%= form_tag("/check_place_empty_request", :method => "get") do %>
   <%= label_tag(:place_name, "Place name:") %><br />
   <%= text_field_tag(:place_name, "", :required => true) %><br />
@@ -15,11 +18,15 @@
   
   <%= submit_tag("Search") %><br />
 <% end %>
+</div>
 
 <% if @place_mssg != nil%>
-      <ul>
-		  <% @place_mssg.each do |msg| %>
-		    <li><%= msg %></li>
-		  <% end %>
-      </ul>
+  	<%if @place_mssg[0] == true%>
+  		<h4 align="center">This place is empty in this time.</h4>
+  	<%elsif @place_mssg[0] != "Unkown place"%>
+  		<h4 align="center">This place is busy in this time.</h4></br>
+  		<h4 align="center">Purpose: <%=@place_mssg[1]%></h4>
+  	<%else%>
+  		<h4 align="center"><%=@place_mssg[0]%></h4>
+  	<%end%>
 <%end%>

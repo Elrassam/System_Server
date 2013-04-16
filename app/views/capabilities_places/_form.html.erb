@@ -10,14 +10,24 @@
       </ul>
     </div>
   <% end %>
+  
+  <%if @cap_place_error_mssg != nil%>
+  	<div class="errors_box">
+      <ul>
+      <% @cap_place_error_mssg.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <%end%>
 <div class = "main_container">
   <div class="field">
     <%= f.label :capability_id %><br />
-    <%= f.number_field :capability_id %>
+    <%= f.text_field :capability_id, :value => ""%>
   </div>
   <div class="field">
     <%= f.label :place_id %><br />
-    <%= f.number_field :place_id %>
+    <%= f.text_field :place_id, :value => ""%>
   </div>
   <div class="actions">
     <%= f.submit %>

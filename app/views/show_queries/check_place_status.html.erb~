@@ -1,5 +1,6 @@
-<h1>Check place status</h1>
+<h1 align="center">Check place status</h1>
 
+<div class = "main_container">
 <%= form_tag("/check_place_status_request", :method => "get") do %>
   <%= label_tag(:place_name_status, "Place name:") %><br />
   <%= text_field_tag :place_name_status, "", :required => true %><br />
@@ -7,13 +8,32 @@
   <%= label_tag(:building_name_status, "Building name:") %><br />
   <%= text_field_tag :building_name_status, "", :required => true %><br />
   
-  <%= submit_tag("Get Status") %>
+  <%= submit_tag("Get Status") %><br />
 <% end %>
-
+</div>
+</br></br>
 <% if @status_mssg != nil%>
-      <ul>
-		  <% @status_mssg.each do |msg| %>
-		    <li><%= msg %></li>
-		  <% end %>
-      </ul>
+	<%if @status_mssg.count == 1%>
+		<h4 align="center"><%=@status_mssg[0]%></h4>
+	<%else%>
+		<table class="centering">
+			<tr>
+				<td>From</td>
+				<td>To</td>
+				<td>Day Name</td>
+				<td>Period</td>
+				<td>Purpose</td>
+			</tr>
+			<%k=1%>
+			<tr>
+			<% @status_mssg.each do |msg| %>
+				<%if k%6 == 0%>
+					<%k=1%>
+					</tr><tr>
+				<%end%>
+				<td><%= msg%></td>
+				<%k+=1%>
+			<% end %>
+		</table>
+	<%%>
 <%end%>
