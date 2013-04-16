@@ -1,0 +1,6 @@
+<h1 align="center">Editing capabilities_place</h1>
+
+<%= render 'form' %>
+
+<h4 align = "center"><%= link_to 'Show', @capabilities_place %></h4>
+<h4 align = "center"><%= link_to 'Back', capabilities_places_path %></h4>

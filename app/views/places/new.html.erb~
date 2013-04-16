@@ -1,0 +1,5 @@
+<h1 align = "center">New place</h1>
+
+<%= render 'form' %>
+
+<h4 align = "center"><%= link_to 'Back', places_path %></h4>

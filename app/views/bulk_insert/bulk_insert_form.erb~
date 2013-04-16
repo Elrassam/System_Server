@@ -1,0 +1,78 @@
+<h1 align = "center">Insert Timetable</h1>
+<% if @bulk_insert_mssg != nil%>
+	<div class="errors_box">
+      <ul>
+		  <% @bulk_insert_mssg.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+      </ul>
+    </div>    
+<%end%>	   
+
+<%@symbols_array = [
+				   [:place_field_1_1, :building_field_1_1, :purpose_field_1_1], 
+				   [:place_field_1_2, :building_field_1_2, :purpose_field_1_2],
+				   
+				   [:place_field_2_1, :building_field_2_1, :purpose_field_2_1], 
+				   [:place_field_2_2, :building_field_2_2, :purpose_field_2_2],
+				   
+				   [:place_field_3_1, :building_field_3_1, :purpose_field_3_1], 
+				   [:place_field_3_2, :building_field_3_2, :purpose_field_3_2],
+				   
+				   [:place_field_4_1, :building_field_4_1, :purpose_field_4_1], 
+				   [:place_field_4_2, :building_field_4_2, :purpose_field_4_2],
+				   
+				   [:place_field_5_1, :building_field_5_1, :purpose_field_5_1], 
+				   [:place_field_5_2, :building_field_5_2, :purpose_field_5_2],
+				   
+				   [:place_field_6_1, :building_field_6_1, :purpose_field_6_1], 
+				   [:place_field_6_2, :building_field_6_2, :purpose_field_6_2],
+				   
+				   [:place_field_7_1, :building_field_7_1, :purpose_field_7_1], 
+				   [:place_field_7_2, :building_field_7_2, :purpose_field_7_2],
+				   
+				   [:place_field_8_1, :building_field_8_1, :purpose_field_8_1], 
+				   [:place_field_8_2, :building_field_8_2, :purpose_field_8_2]]%>
+<%= form_tag("/bulk_insert_request", :method => "show") do %>
+<table class="centering">
+	<tr>
+		<td>Period</td>
+		<td>Place</td>
+		<td>Building</td>
+		<td>Purpose</td>
+	</tr>
+	<%k = 0%>
+	<%0.upto(7) do |i|%>
+		<tr>
+			<td rowspan="3"><%=i+1%></td>
+		</tr>
+		<%0.upto(1) do%>
+			<tr>
+				<td><%= text_field_tag @symbols_array[k][0]%></td>
+				<td><%= text_field_tag @symbols_array[k][1]%></td>
+				<td><%= text_area_tag @symbols_array[k][2]%></td>
+				<%k+=1%>
+			</tr>
+		<%end%>
+		</hr>
+	<%end%>
+</table>
+<div class = "main_container">	
+<br /><br />
+	<%= label_tag(:date_from_field, "From date") %><br />
+  	<%= date_select :date_from_field, "date_from_name" %><br /><br />
+
+
+	<%= label_tag(:date_to_field, "To date") %><br />
+  	<%= date_select :date_to_field, "date_to_name" %><br /><br />
+ 
+ 
+    <%= label_tag(:day_name_field, "Day name") %><br />
+    <%= select_tag(:day_name_field, options_for_select( ['Saturday', 'Sunday', 'Monday','Tuesday', 
+    		'Wednesday', 'Thursday','Friday'] ) )%>
+    <br /><br />
+
+<%= submit_tag("Submit") %><br /><br /><br /><br />
+<% end %>
+</div>
+</br><h4 align="center"><a href="/edit_queries.html">Home page</a></h4>

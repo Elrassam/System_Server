@@ -1,0 +1,23 @@
+<h1 align = "center">Listing capabilities</h1>
+
+<table class="centering">
+  <tr>
+    <th>Capability name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @capabilities.each do |capability| %>
+  <tr>
+    <td><%= capability.cap_name %></td>
+    <td><%= link_to 'Show', capability %></td>
+    <td><%= link_to 'Edit', edit_capability_path(capability) %></td>
+    <td><%= link_to 'Destroy', capability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h4 align = "center"><%= link_to 'New Capability', new_capability_path %></h4>

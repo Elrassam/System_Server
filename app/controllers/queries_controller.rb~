@@ -1,0 +1,4 @@
+class QueriesController < ApplicationController
+  def edit_q
+  end
+end

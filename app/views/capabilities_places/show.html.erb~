@@ -1,0 +1,15 @@
+<div class = "main_container">
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Capability name:</b>
+  <%= (Capability.find_by_id(@capabilities_place.capability_id)).cap_name %>
+</p>
+
+<p>
+  <b>Place name:</b>
+  <%= (Place.find_by_id(@capabilities_place.place_id)).placename %>
+</p>
+
+</div>
+<h4 align = "center"><%= link_to 'Edit', edit_capabilities_place_path(@capabilities_place) %></h4>
+<h4 align = "center"><%= link_to 'Back', capabilities_places_path %></h4>

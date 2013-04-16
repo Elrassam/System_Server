@@ -1,0 +1,4 @@
+<h1 align = "center">New capability</h1>
+
+<%= render 'form' %>
+<h4 align = "center"><%= link_to 'Back', capabilities_path %></h4>

@@ -1,0 +1,23 @@
+// Place all the styles related to the login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+background-color:#C0C0C0;
+}
+.main_container{
+border:2px solid #686868;
+padding:20px; 
+background:#E8E8E8;
+border-radius:10px;
+}
+.errors_box
+{
+border:2px solid #FF0000;
+padding:20px; 
+background:#EFCBCB;
+border-radius:10px;
+}
+table.center {
+margin-left:auto; 
+margin-right:auto;
+}
