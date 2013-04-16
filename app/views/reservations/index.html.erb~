@@ -1,10 +1,11 @@
-<h1>Listing reservations</h1>
+<h1 align = "center">Listing reservations</h1>
 
-<table>
+<table class="centering">
   <tr>
     <th>Place</th>
     <th>From</th>
     <th>To</th>
+    <th>Day</th>
     <th>Period</th>
     <th>Purpose</th>
     <th></th>

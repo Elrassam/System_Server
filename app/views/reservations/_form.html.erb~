@@ -1,6 +1,6 @@
 <%= form_for(@reservation) do |f| %>
   <% if @reservation.errors.any? %>
-    <div id="error_explanation">
+    <div class="errors_box">
       <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
 
       <ul>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :dayname %><br />
-    <%= f.select :dayname, ['Sunday', 'Monday','Tuesday', 
+    <%= f.select :dayname, ['Saturday', 'Sunday', 'Monday','Tuesday', 
     		'Wednesday', 'Thursday','Friday'] %> 
   </div>
   <div class="field">

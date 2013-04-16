@@ -3,8 +3,8 @@ class CapabilitiesController < ApplicationController
   # GET /capabilities.json
   def index
   	if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-  	  prsn = Person.find_by_username(session[:username_cookie_system])
-  	  if prsn != nil
+  	  #prsn = Person.find_by_username(session[:username_cookie_system])
+  	  #if prsn != nil
 	  	  if session[:usertype_cookie_system] == "false"
 	  	  	@capabilities = Capability.all
 			respond_to do |format|
@@ -14,9 +14,9 @@ class CapabilitiesController < ApplicationController
 	  	  else
 	  	  	render "public/500.html"  
 	  	  end
-  	  else
-  	  	render "app/views/login/login.html.erb"
-  	  end
+  	  #else
+  	  #	render "app/views/login/login.html.erb"
+  	  #end
   	else
   	  render "app/views/login/login.html.erb"
   	end
@@ -26,8 +26,8 @@ class CapabilitiesController < ApplicationController
   # GET /capabilities/1.json
   def show
      if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-     prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 			@capability = Capability.find(params[:id])
 
@@ -38,9 +38,9 @@ class CapabilitiesController < ApplicationController
 	  	  else
 	  	  	render "public/500.html"  
 	  	  end
-	  else
-	  	render "app/views/login/login.html.erb"
-	  end
+	  #else
+	  	#render "app/views/login/login.html.erb"
+	  #end
   	else
   	  render "app/views/login/login.html.erb"
   	end
@@ -50,8 +50,8 @@ class CapabilitiesController < ApplicationController
   # GET /capabilities/new.json
   def new
      if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-  	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+  	  #if prsn != nil
 	  	  if session[:usertype_cookie_system] == "false"
 			@capability = Capability.new
 
@@ -62,9 +62,9 @@ class CapabilitiesController < ApplicationController
 	  	  else
 	  	  	render "public/500.html"  
 	  	  end
-  	  else
-  	  	render "app/views/login/login.html.erb"
-  	  end
+  	  #else
+  	  	#render "app/views/login/login.html.erb"
+  	  #end
   	else
   	  render "app/views/login/login.html.erb"
   	end
@@ -73,16 +73,16 @@ class CapabilitiesController < ApplicationController
   # GET /capabilities/1/edit
   def edit
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-  	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+  	  #if prsn != nil
 	  	  if session[:usertype_cookie_system] == "false"
 	  	  	@capability = Capability.find(params[:id])
 	  	  else
 	  	  	render "public/500.html"  
 	  	  end
-  	  else
-  	  	render "app/views/login/login.html.erb"
-  	  end
+  	  #else
+  	  	#render "app/views/login/login.html.erb"
+  	  #end
   	else
   	  render "app/views/login/login.html.erb"
   	end
@@ -92,8 +92,8 @@ class CapabilitiesController < ApplicationController
   # POST /capabilities.json
   def create
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-  	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+  	  #if prsn != nil
 	  	  if session[:usertype_cookie_system] == "false"
 			@capability = Capability.new(params[:capability])
 
@@ -109,9 +109,9 @@ class CapabilitiesController < ApplicationController
 	  	  else
 	  	  	render "public/500.html"  
 	  	  end
-  	  else
-  	  	render "app/views/login/login.html.erb"
-  	  end
+  	  #else
+  	  	#render "app/views/login/login.html.erb"
+  	  #end
   	else
   	  render "app/views/login/login.html.erb"
   	end
@@ -121,8 +121,8 @@ class CapabilitiesController < ApplicationController
   # PUT /capabilities/1.json
   def update
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-  	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+  	  #if prsn != nil
 	  	  if session[:usertype_cookie_system] == "false"
 			@capability = Capability.find(params[:id])
 
@@ -138,9 +138,9 @@ class CapabilitiesController < ApplicationController
 	  	  else
 	  	  	render "public/500.html"  
 	  	  end
-  	  else
+  	  #else
   	  
-  	  end
+  	  #end
   	else
   	  render "app/views/login/login.html.erb"
   	end

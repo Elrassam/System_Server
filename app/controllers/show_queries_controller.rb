@@ -1,14 +1,14 @@
 class ShowQueriesController < ApplicationController
   def check_place_status
   	if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-	  	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+	  	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
 			respond_to do |format|
 			  format.html { render "check_place_status" }
 			end
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -18,8 +18,8 @@ class ShowQueriesController < ApplicationController
   
   def check_place_status_action
 	if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-	  	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+	  	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
 		  	place_name = params[:place_name_status]
 		  	building_name = params[:building_name_status]
 		  	@status_mssg = []
@@ -45,9 +45,9 @@ class ShowQueriesController < ApplicationController
 			  format.html { render "check_place_status"}
 			  format.json { render json: @status_mssg }
 			end	 
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end    	
@@ -58,14 +58,14 @@ class ShowQueriesController < ApplicationController
   def search_specific_place
 	  if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
 
-	  	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+	  	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
 		  	respond_to do |format|
 			  format.html { render "search_specific_place" }
 			end
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 
 	  else
 	  	render "app/views/login/login.html.erb"
@@ -75,8 +75,8 @@ class ShowQueriesController < ApplicationController
   
   def search_specific_place_action
 	if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-	  	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+	  	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
 		  	size = params[:size]
 		  	event = params[:empty_day_date]
 		  	empty_day_date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, 
@@ -99,9 +99,9 @@ class ShowQueriesController < ApplicationController
 			  format.html { render "search_specific_place"}
 			  format.json { render json: @empty_places_mssg }
 			end
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end   
@@ -111,14 +111,14 @@ class ShowQueriesController < ApplicationController
 
   def check_place_empty
 	if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-	  	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+	  	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
 		  	respond_to do |format|
 			  format.html { render "check_place_empty" }
 			end
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -128,8 +128,8 @@ class ShowQueriesController < ApplicationController
   
   def check_place_empty_action
 	if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-	  	prsn = Person.find_by_username(session[:username_cookie_system])
-		if prsn != nil
+	  	#prsn = Person.find_by_username(session[:username_cookie_system])
+		#if prsn != nil
 		  	place_name = params[:place_name]
 		  	building_name = params[:building_name]
 		  	event = params[:day_date]
@@ -158,9 +158,9 @@ class ShowQueriesController < ApplicationController
 			  format.html { render "check_place_empty"}
 			  format.json { render json: @place_mssg }
 			end	
-		else
-			render "app/views/login/login.html.erb"
-		end
+		#else
+		#	render "app/views/login/login.html.erb"
+		#end
 	else
 	  render "app/views/login/login.html.erb"
 	end

@@ -5,10 +5,12 @@
 </head>
 
 <body>
+<div class = "main_container">
   <ul>
-	<li> <a href = "/check_place_status"> Check place status</a><li/>
-	<li> <a href = "/search_specific_place"> Search about specific place </a><li/>
-	<li> <a href = "/check_place_empty"> Check place empty </a><li/>	
+	<li> <a href = "/check_place_status"> Check place status</a></li>
+	<li> <a href = "/search_specific_place"> Search about specific place </a></li>
+	<li> <a href = "/check_place_empty"> Check place empty </a></li>	
   <ul/>
+</div>  
 </body>
 </html>

@@ -3,8 +3,8 @@ class CapabilitiesPlacesController < ApplicationController
   # GET /capabilities_places.json
   def index
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-	  prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+	  #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 		  	    
 		  	@capabilities_places = CapabilitiesPlace.all
@@ -16,9 +16,9 @@ class CapabilitiesPlacesController < ApplicationController
 		  else
 		  	render "public/500.html"  
 		  end
-	  else
-		render "app/views/login/login.html.erb"
-	  end
+	  #else
+		#render "app/views/login/login.html.erb"
+	  #end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -28,8 +28,8 @@ class CapabilitiesPlacesController < ApplicationController
   # GET /capabilities_places/1.json
   def show
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 			@capabilities_place = CapabilitiesPlace.find(params[:id])
 
@@ -40,9 +40,9 @@ class CapabilitiesPlacesController < ApplicationController
 		  else
 		  	render "public/500.html"  
 		  end
-	  else
-		render "app/views/login/login.html.erb"
-	  end
+	  #else
+		#render "app/views/login/login.html.erb"
+	  #end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -52,8 +52,8 @@ class CapabilitiesPlacesController < ApplicationController
   # GET /capabilities_places/new.json
   def new
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 	 	  if session[:usertype_cookie_system] == "false"
 			@capabilities_place = CapabilitiesPlace.new
 
@@ -64,9 +64,9 @@ class CapabilitiesPlacesController < ApplicationController
 		  else
 		  	render "public/500.html"  
 		  end
-	  else
-		render "app/views/login/login.html.erb"
-	  end
+	  #else
+		#render "app/views/login/login.html.erb"
+	  #end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -75,16 +75,16 @@ class CapabilitiesPlacesController < ApplicationController
   # GET /capabilities_places/1/edit
   def edit
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 			@capabilities_place = CapabilitiesPlace.find(params[:id])
 		  else
 		  	render "public/500.html"  
 		  end
-	  else
-		render "app/views/login/login.html.erb"
-	  end
+	  #else
+		#render "app/views/login/login.html.erb"
+	  #end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -94,8 +94,8 @@ class CapabilitiesPlacesController < ApplicationController
   # POST /capabilities_places.json
   def create
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 			@capabilities_place = CapabilitiesPlace.new(params[:capabilities_place])
 
@@ -111,9 +111,9 @@ class CapabilitiesPlacesController < ApplicationController
 		  else
 		  	render "public/500.html"  
 		  end
-	  else
-	  	render "app/views/login/login.html.erb"
-	  end
+	  #else
+	  	#render "app/views/login/login.html.erb"
+	  #end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -123,8 +123,8 @@ class CapabilitiesPlacesController < ApplicationController
   # PUT /capabilities_places/1.json
   def update
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 			@capabilities_place = CapabilitiesPlace.find(params[:id])
 
@@ -140,9 +140,9 @@ class CapabilitiesPlacesController < ApplicationController
 		  else
 		  	render "public/500.html"  
 		  end
-	  else
-		render "app/views/login/login.html.erb"
-	  end
+	  #else
+		#render "app/views/login/login.html.erb"
+	  #end
 	else
 	  render "app/views/login/login.html.erb"
 	end
@@ -152,8 +152,8 @@ class CapabilitiesPlacesController < ApplicationController
   # DELETE /capabilities_places/1.json
   def destroy
     if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
-      prsn = Person.find_by_username(session[:username_cookie_system])
-	  if prsn != nil
+      #prsn = Person.find_by_username(session[:username_cookie_system])
+	  #if prsn != nil
 		  if session[:usertype_cookie_system] == "false"
 			@capabilities_place = CapabilitiesPlace.find(params[:id])
 			@capabilities_place.destroy
@@ -165,9 +165,9 @@ class CapabilitiesPlacesController < ApplicationController
 		  else
 		  	render "public/500.html"  
 		  end
-	  else
-	  	render "app/views/login/login.html.erb"
-	  end
+	  #else
+	  	#render "app/views/login/login.html.erb"
+	  #end
 	else
 	  render "app/views/login/login.html.erb"
 	end
