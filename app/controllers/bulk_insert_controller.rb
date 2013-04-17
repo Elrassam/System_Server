@@ -48,7 +48,6 @@ class BulkInsertController < ApplicationController
 				   [:place_field_8_2, :building_field_8_2, :purpose_field_8_2]]                 
 				event_from = params[:date_from_field]
 				event_to = params[:date_to_field]
-	
 				date_from = Date.new event_from["date_from_name(1i)"].to_i, event_from["date_from_name(2i)"].to_i, 
 															event_from["date_from_name(3i)"].to_i
 	

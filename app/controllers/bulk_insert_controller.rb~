@@ -22,7 +22,85 @@ class BulkInsertController < ApplicationController
 	def bulk_insert_action
 		if session.has_key?(:username_cookie_system) && session.has_key?(:usertype_cookie_system)
 			if session[:usertype_cookie_system] == "false"
-				
+				@symbols_array = [
+				   [:place_field_1_1, :building_field_1_1, :purpose_field_1_1], 
+				   [:place_field_1_2, :building_field_1_2, :purpose_field_1_2],
+				   
+				   [:place_field_2_1, :building_field_2_1, :purpose_field_2_1], 
+				   [:place_field_2_2, :building_field_2_2, :purpose_field_2_2],
+				   
+				   [:place_field_3_1, :building_field_3_1, :purpose_field_3_1], 
+				   [:place_field_3_2, :building_field_3_2, :purpose_field_3_2],
+				   
+				   [:place_field_4_1, :building_field_4_1, :purpose_field_4_1], 
+				   [:place_field_4_2, :building_field_4_2, :purpose_field_4_2],
+				   
+				   [:place_field_5_1, :building_field_5_1, :purpose_field_5_1], 
+				   [:place_field_5_2, :building_field_5_2, :purpose_field_5_2],
+				   
+				   [:place_field_6_1, :building_field_6_1, :purpose_field_6_1], 
+				   [:place_field_6_2, :building_field_6_2, :purpose_field_6_2],
+				   
+				   [:place_field_7_1, :building_field_7_1, :purpose_field_7_1], 
+				   [:place_field_7_2, :building_field_7_2, :purpose_field_7_2],
+				   
+				   [:place_field_8_1, :building_field_8_1, :purpose_field_8_1], 
+				   [:place_field_8_2, :building_field_8_2, :purpose_field_8_2]]                 
+				event_from = params[:date_from_field]
+				event_to = params[:date_to_field]
+				#begin
+				#rescue Exception => exc
+				   
+				#end
+				date_from = Date.new event_from["date_from_name(1i)"].to_i, event_from["date_from_name(2i)"].to_i, 
+															event_from["date_from_name(3i)"].to_i
+	
+				date_to = Date.new event_to["date_to_name(1i)"].to_i, event_to["date_to_name(2i)"].to_i, 
+				 											event_to["date_to_name(3i)"].to_i  											
+				day_name = params[:day_name_field]	
+				@bulk_insert_mssg = nil
+				new_records_array = []
+				success = true
+	
+				0.upto(15) do |i|
+					if success and !params[@symbols_array[i][0]].blank? and !params[@symbols_array[i][1]].blank? and !params[@symbols_array[i][2]].blank?
+						placeid = Place.find_by_placename_and_building(params[@symbols_array[i][0]],params[@symbols_array[i][1]])
+						if placeid != nil
+							new_records_array << Reservation.new(:place_id => placeid.id,:datefrom=>date_from.to_date, :dateto=>date_to.to_date, :dayname=>day_name, :period=>((i/2)+1).floor, :purpose=>params[@symbols_array[i][2]])         
+						else
+							@bulk_insert_mssg = []
+							@bulk_insert_mssg << "#{params[@symbols_array[i][0]]} place in #{params[@symbols_array[i][1]]} building do not exist."
+							success = false
+							break;
+						end
+					end
+				end
+				if success
+					new_records_array.each do |element|
+						success = element.valid?
+						if !success
+							break
+						end
+					end
+					if success
+						new_records_array.each do |element|
+							element.save
+						end
+						respond_to do |format|
+						  format.html { render "public/edit_queries.html" }
+						end
+					else
+						@bulk_insert_mssg = []
+						@bulk_insert_mssg << "There are places which had been reserved in this time, or there are some errors in input fields."
+						respond_to do |format|
+						  format.html { render "bulk_insert_form" }
+						end	
+					end
+				else
+					respond_to do |format|
+					  format.html { render "bulk_insert_form" }
+					end		
+				end
 				
 			else
 				render "public/500.html"

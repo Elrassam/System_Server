@@ -3,8 +3,8 @@ class CapabilitiesPlace < ActiveRecord::Base
   belongs_to :capabilities, :foreign_key => :capability_id, :dependent => :delete
   belongs_to :places, :foreign_key => :place_id, :dependent => :delete
   validates_uniqueness_of :capability_id, :scope => :place_id
-  validate check_place_exist
-  validate check_capability_exist
+  validate :check_place_exist
+  validate :check_capability_exist
   validates :capability_id, :presence => true
   validates :place_id, :presence => true
   

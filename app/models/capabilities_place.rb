@@ -1,7 +1,7 @@
 class CapabilitiesPlace < ActiveRecord::Base
   attr_accessible :capability_id, :place_id
-  belongs_to :capabilities, :foreign_key => :capability_id, :dependent => :delete
-  belongs_to :places, :foreign_key => :place_id, :dependent => :delete
+  belongs_to :capabilities, :foreign_key => :capability_id
+  belongs_to :places, :foreign_key => :place_id
   validates_uniqueness_of :capability_id, :scope => :place_id
   validate :check_place_exist
   validate :check_capability_exist

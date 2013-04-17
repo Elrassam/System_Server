@@ -7,7 +7,7 @@ class Place < ActiveRecord::Base
   validates :placename, :presence => true
   validates :person_id, :presence => true
   has_and_belongs_to_many :capabilities
-  has_many :reservations, :foreign_key => :place_id
+  has_many :reservations, :foreign_key => :place_id, :dependent => :delete_all
   validate :person_id_exists
   
   def person_id_exists

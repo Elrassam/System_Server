@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
   attr_accessible :datefrom, :period, :place_id, :purpose, :dateto, :dayname
-  belongs_to :place, :dependent => :delete, :foreign_key => :place_id
+  belongs_to :place, :foreign_key => :place_id
   validates_uniqueness_of :place_id, :scope => [:datefrom, :dateto, :period, :dayname]
   validates :period, :inclusion => { :in => 1..9 }
   validate :check_from_to
@@ -27,6 +27,8 @@ class Reservation < ActiveRecord::Base
     	else
     		errors.add(:dayname, "These interval isn't include this day.")
     	end
+    else
+    	errors.add(:datefrom, "Date from must be before date to.")	
     end
   	if result
   	  check = Reservation.where("place_id = ? AND dayname = ? AND period = ? AND (
